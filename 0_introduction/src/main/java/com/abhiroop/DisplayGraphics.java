@@ -3,7 +3,7 @@ package com.abhiroop;
 import java.awt.*;
 
 public final class DisplayGraphics extends Canvas {
-
+    //assume paint() as sort-of class constructor, this function gets automatically executed when an object is made
     public void paint(Graphics g) {
         setBackground(Color.WHITE);
         setForeground(Color.BLACK);
