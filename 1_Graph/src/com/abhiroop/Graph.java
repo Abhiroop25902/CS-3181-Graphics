@@ -207,9 +207,6 @@ public class Graph extends Canvas implements MouseWheelListener {
      */
     @Override
     public void paint(Graphics g) {
-        //done for repaint()
-        super.paint(g);
-
         if(zoomer)
             zoom(g);
 
