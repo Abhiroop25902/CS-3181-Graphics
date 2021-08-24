@@ -82,6 +82,36 @@ public class LineDrawer extends Canvas {
         }
    }
 
+    private void drawLineMidPoint(Graphics g, int x1, int y1, int x2, int y2){
+        int dx = Math.abs(x2 - x1);
+        int dy = Math.abs(y2 - y1);
+
+        int sx = x1 < x2 ? 1 : -1;
+        int sy = y1 < y2 ? 1 : -1;
+
+        int err = dx-dy;
+        int e2;
+
+        while (true) {
+            drawPoint(g, x1, y1);
+
+            if (x1 == x2 && y1 == y2)
+                break;
+
+            e2 = 2 * err;
+
+            if (e2 > -dy) {
+                err = err - dy;
+                x1 = x1 + sx;
+            }
+
+            if (e2 < dx) {
+                err = err + dx;
+                y1 = y1 + sy;
+            }
+        }
+    }
+
     /**
      * Paints this canvas.
      * <p>
@@ -104,7 +134,7 @@ public class LineDrawer extends Canvas {
         for(int angle = 0; angle <= 360; angle += 30){
             int x2 = (int)Math.round(length * Math.cos(angle * Math.PI /180));
             int y2 = (int)Math.round(length * Math.sin(angle * Math.PI /180));
-            drawLineBresenham(g, 0, 0, x2 , y2);
+            drawLineMidPoint(g, 0, 0, x2 , y2);
         }
     }
 }
