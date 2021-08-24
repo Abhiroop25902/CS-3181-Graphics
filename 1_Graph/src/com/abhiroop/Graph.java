@@ -88,7 +88,7 @@ public class Graph extends Canvas implements MouseWheelListener {
         graphics.drawLine(xOrigin  + x1, yOrigin - y1, xOrigin + x2, yOrigin - y2);
     }
 
-    private void drawString(Graphics g,Color color,  String str, int x, int y) {
+    private void drawString(Graphics g, Color color,  String str, int x, int y) {
         var offset = 4;
         g.setColor(color);
         g.drawString(str, xOrigin + x + offset, yOrigin + y + offset + g.getFont().getSize());
