@@ -60,8 +60,7 @@ public class LineDrawer extends Canvas {
         int err = dx-dy;
         int e2;
 
-        while (true)
-        {
+        while (true) {
             drawPoint(g, x1, y1);
 
             if (x1 == x2 && y1 == y2)
@@ -69,8 +68,7 @@ public class LineDrawer extends Canvas {
 
             e2 = 2 * err;
 
-            if (e2 > -dy)
-            {
+            if (e2 > -dy) {
                 err = err - dy;
                 x1 = x1 + sx;
             }
