@@ -4,16 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LineDrawer extends Canvas {
-    private final JFrame displayWindow;
-
     //center origin
     private final int xOrigin;
     private final int yOrigin;
 
     public LineDrawer(JFrame displayWindow) {
-        //set displayWindow
-        this.displayWindow = displayWindow;
-
         //set Background Color
         setBackground(Color.white);
 
