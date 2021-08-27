@@ -18,5 +18,8 @@ public class Main {
 
         var displayWindow2 = getDisplayWindow();
         displayWindow2.add(new TwigDrawer(displayWindow2));
+
+        var displayWindow3 = getDisplayWindow();
+        displayWindow3.add(new ShapeDrawer(displayWindow3));
     }
 }
