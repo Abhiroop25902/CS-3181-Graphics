@@ -20,10 +20,10 @@ public class Main {
         var displayWindow1 = getDisplayWindow();
         displayWindow1.add(new LineDisplay(displayWindow1));
 
-//        var displayWindow2 = getDisplayWindow();
-//        displayWindow2.add(new TwigDrawer(displayWindow2));
-//
-//        var displayWindow3 = getDisplayWindow();
-//        displayWindow3.add(new ShapeDrawer(displayWindow3));
+        var displayWindow2 = getDisplayWindow();
+        displayWindow2.add(new TwigDrawer(displayWindow2));
+
+        var displayWindow3 = getDisplayWindow();
+        displayWindow3.add(new ShapeDrawer(displayWindow3));
     }
 }
