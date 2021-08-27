@@ -1,5 +1,9 @@
 package com.abhiroop;
 
+import com.abhiroop.part1.LineDisplay;
+import com.abhiroop.part2.TwigDrawer;
+import com.abhiroop.part3.ShapeDrawer;
+
 import javax.swing.*;
 
 public class Main {
@@ -14,12 +18,12 @@ public class Main {
 
     public static void main(String[] args) {
         var displayWindow1 = getDisplayWindow();
-        displayWindow1.add(new LineDrawer(displayWindow1));
+        displayWindow1.add(new LineDisplay(displayWindow1));
 
-        var displayWindow2 = getDisplayWindow();
-        displayWindow2.add(new TwigDrawer(displayWindow2));
-
-        var displayWindow3 = getDisplayWindow();
-        displayWindow3.add(new ShapeDrawer(displayWindow3));
+//        var displayWindow2 = getDisplayWindow();
+//        displayWindow2.add(new TwigDrawer(displayWindow2));
+//
+//        var displayWindow3 = getDisplayWindow();
+//        displayWindow3.add(new ShapeDrawer(displayWindow3));
     }
 }

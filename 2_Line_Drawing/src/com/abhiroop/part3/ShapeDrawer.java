@@ -1,4 +1,4 @@
-package com.abhiroop;
+package com.abhiroop.part3;
 
 import javax.swing.*;
 import java.awt.*;
