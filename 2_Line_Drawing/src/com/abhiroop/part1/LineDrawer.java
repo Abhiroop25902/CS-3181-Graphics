@@ -19,5 +19,5 @@ public abstract class LineDrawer {
         g.drawOval(xOrigin + x +1 ,yOrigin - y + 1, 0,0 );
     }
 
-    abstract void draw(Graphics g, int x1, int y1, int x2, int y2);
+    abstract public void draw(Graphics g, int x1, int y1, int x2, int y2);
 }
