@@ -132,9 +132,6 @@ public class Graph extends Canvas implements MouseWheelListener {
             drawLine(g, graphLineColor, x, topLimit, x, bottomLimit);
             drawString(g, axisColor, Integer.toString(x/100), x, 0);
         }
-
-
-
     }
 
     /**
