@@ -18,8 +18,6 @@ public class LineDisplay extends Canvas {
 
     }
 
-
-
     private void drawLineCircle(Graphics g, int length, int xCenter, int yCenter, LineDrawer lineDrawer, String text){
         for(int angle = 0; angle <= 360; angle += 30){
             int x2 = xCenter + (int)Math.round(length * Math.cos(angle * Math.PI /180));
