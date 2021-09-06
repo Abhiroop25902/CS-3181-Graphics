@@ -9,7 +9,7 @@ public abstract class Shape {
     private final LineDrawer lineDrawer;
 
     public Shape(int xOrigin, int yOrigin) {
-        lineDrawer = new Bresenham(xOrigin, yOrigin);
+        lineDrawer = new Bresenham(xOrigin, yOrigin); //further addition: make the LineDrawer object come from function parameter
     }
 
     void drawLine(Graphics g, int x1, int y1, int x2, int y2){
