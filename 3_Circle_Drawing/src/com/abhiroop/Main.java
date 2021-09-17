@@ -1,6 +1,7 @@
 package com.abhiroop;
 
 import com.abhiroop.part1.CircleDisplay;
+import com.abhiroop.part2.EllipseDisplay;
 
 import javax.swing.*;
 
@@ -16,5 +17,8 @@ public class Main {
     public static void main(String[] args) {
 	    var displayWindow1 = getDisplayWindow();
         displayWindow1.add(new CircleDisplay(displayWindow1));
+
+        var displayWindow2 = getDisplayWindow();
+        displayWindow2.add(new EllipseDisplay(displayWindow1));
     }
 }
