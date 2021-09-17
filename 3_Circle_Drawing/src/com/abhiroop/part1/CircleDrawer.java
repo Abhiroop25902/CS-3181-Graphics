@@ -30,12 +30,14 @@ public class CircleDrawer {
             drawPoint(g, -y+xCenter, x+yCenter);
 
             //3rd quadrant
+            drawPoint(g, -x+xCenter, -y+yCenter);
+            drawPoint(g, -y+xCenter, -x+yCenter);
+
+            //4th quadrant
             drawPoint(g, x+xCenter, -y+yCenter);
             drawPoint(g, y+xCenter, -x+yCenter);
 
-            //4th quadrant
-            drawPoint(g, -x+xCenter, -y+yCenter);
-            drawPoint(g, -y+xCenter, -x+yCenter);
+
 
             if(p < 0)
                 p = p+ 2*x + 3;

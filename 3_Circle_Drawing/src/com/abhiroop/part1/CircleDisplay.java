@@ -13,6 +13,8 @@ public class CircleDisplay  extends BaseGraph {
     @Override
     public void paint(Graphics g){
         super.paint(g);
-        new CircleDrawer(super.getxOrigin(), super.getyOrigin()).draw(g, 0,0,100);
+
+        for(int r = 0; r< 200; r+=2)
+            new CircleDrawer(super.getxOrigin(), super.getyOrigin()).draw(g, 0,0,r);
     }
 }
