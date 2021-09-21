@@ -16,7 +16,7 @@ public abstract class LineDrawer {
      * @param g  the Graphics Object
      */
     void drawPoint(Graphics g, int x, int y){
-        g.drawOval(xOrigin + x +1 ,yOrigin - y + 1, 0,0 );
+        g.drawLine(xOrigin + x, yOrigin - y, xOrigin + x, yOrigin - y);
     }
 
     abstract public void draw(Graphics g, int x1, int y1, int x2, int y2);
