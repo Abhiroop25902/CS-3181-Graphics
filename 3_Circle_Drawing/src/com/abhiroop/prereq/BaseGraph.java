@@ -1,6 +1,7 @@
 package com.abhiroop.prereq;
 
 import com.abhiroop.prereq.lineDrawer.Bresenham;
+import com.abhiroop.prereq.lineDrawer.LineDrawer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,15 +18,15 @@ public class BaseGraph extends Canvas implements MouseWheelListener {
     // for zooming
     private double zoomFactor;
     private double prevZoomFactor;
-    private boolean zoomer;
+    private boolean zoomed;
     private double xOffset;
     private double yOffset;
 
-    public int getxOrigin() {
+    public int getXOrigin() {
         return xOrigin;
     }
 
-    public int getyOrigin() {
+    public int getYOrigin() {
         return yOrigin;
     }
 
@@ -47,12 +48,12 @@ public class BaseGraph extends Canvas implements MouseWheelListener {
         prevZoomFactor = 1;
         xOffset = 0;
         yOffset = 0;
-        zoomer = false;
+        zoomed = false;
     }
 
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
-        zoomer = true;
+        zoomed = true;
 
         //zoom in
         if(e.getWheelRotation() < 0)
@@ -64,9 +65,9 @@ public class BaseGraph extends Canvas implements MouseWheelListener {
         repaint();
     }
 
-    private void drawLine(Graphics graphics, Color color, int x1,int y1, int x2, int y2){
+    private void drawLine(Graphics graphics, LineDrawer lineDrawer, Color color, int x1, int y1, int x2, int y2){
         graphics.setColor(color);
-        graphics.drawLine(xOrigin  + x1, yOrigin - y1, xOrigin + x2, yOrigin - y2);
+        lineDrawer.draw(graphics, x1, y1, x2, y2);
     }
 
     private void drawString(Graphics g, Color color,  String str, int x, int y) {
@@ -78,7 +79,7 @@ public class BaseGraph extends Canvas implements MouseWheelListener {
     private void drawGraph(Graphics g){
         //going twice the window size to ensure zoom out works
         var axisColor = new Color(3,133,88);
-        var graphLineColor = Color.GRAY;
+//        var graphLineColor = Color.GRAY;
         var scale = 100;
         var lineDrawer = new Bresenham(xOrigin, yOrigin);
 
@@ -89,9 +90,9 @@ public class BaseGraph extends Canvas implements MouseWheelListener {
 
 
         //x-axis
-        drawLine(g, axisColor,leftLimit, 0, rightLimit, 0);
+        drawLine(g, lineDrawer,axisColor,leftLimit, 0, rightLimit, 0);
         //y-axis
-        drawLine(g, axisColor, 0,topLimit, 0, bottomLimit);
+        drawLine(g, lineDrawer,axisColor, 0,topLimit, 0, bottomLimit);
 
         //origin
         drawString(g,axisColor,"0", 0, 0);
@@ -132,12 +133,12 @@ public class BaseGraph extends Canvas implements MouseWheelListener {
         at.scale(zoomFactor, zoomFactor);
         prevZoomFactor = zoomFactor;
         g2.transform(at);
-        zoomer = false;
+        zoomed = false;
     }
 
     @Override
     public void paint(Graphics g) {
-        if(zoomer)
+        if(zoomed)
             zoom(g);
         drawGraph(g);
         g.setColor(Color.BLACK);
