@@ -14,9 +14,9 @@ public class EllipseDisplay extends BaseGraph {
     public void paint(Graphics g){
         super.paint(g);
 
-        new EllipseDrawer(super.getxOrigin(), super.getyOrigin()).draw(g, 0,0,100, 200);
-        new EllipseDrawer(super.getxOrigin(), super.getyOrigin()).draw(g, 0,0,200, 100);
-        new EllipseDrawer(super.getxOrigin(), super.getyOrigin()).draw(g, 0,0,100, 100);
+        new EllipseDrawer(super.getXOrigin(), super.getYOrigin()).draw(g, 0,0,100, 200);
+        new EllipseDrawer(super.getXOrigin(), super.getYOrigin()).draw(g, 0,0,200, 100);
+        new EllipseDrawer(super.getXOrigin(), super.getYOrigin()).draw(g, 0,0,100, 100);
 
     }
 }
