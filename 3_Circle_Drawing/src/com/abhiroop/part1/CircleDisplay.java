@@ -14,6 +14,6 @@ public class CircleDisplay  extends BaseGraph {
     public void paint(Graphics g){
         super.paint(g);
 
-        new CircleDrawer(super.getxOrigin(), super.getyOrigin()).draw(g, 0,0,100);
+        new CircleDrawer(super.getXOrigin(), super.getYOrigin()).draw(g, 0,0,100);
     }
 }

@@ -18,7 +18,7 @@ public class BaseGraph extends Canvas implements MouseWheelListener {
     // for zooming
     private double zoomFactor;
     private double prevZoomFactor;
-    private boolean zoomed;
+    private boolean zoomer;
     private double xOffset;
     private double yOffset;
 
@@ -48,12 +48,12 @@ public class BaseGraph extends Canvas implements MouseWheelListener {
         prevZoomFactor = 1;
         xOffset = 0;
         yOffset = 0;
-        zoomed = false;
+        zoomer = false;
     }
 
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
-        zoomed = true;
+        zoomer = true;
 
         //zoom in
         if(e.getWheelRotation() < 0)
@@ -65,9 +65,10 @@ public class BaseGraph extends Canvas implements MouseWheelListener {
         repaint();
     }
 
-    private void drawLine(Graphics graphics, LineDrawer lineDrawer, Color color, int x1, int y1, int x2, int y2){
-        graphics.setColor(color);
-        lineDrawer.draw(graphics, x1, y1, x2, y2);
+    private void drawLine(Graphics g, LineDrawer lineDrawer, Color color, int x1, int y1, int x2, int y2){
+        g.setColor(color);
+//        graphics.drawLine(xOrigin  + x1, yOrigin - y1, xOrigin + x2, yOrigin - y2);
+        lineDrawer.draw(g, x1, y1, x2, y2);
     }
 
     private void drawString(Graphics g, Color color,  String str, int x, int y) {
@@ -133,12 +134,12 @@ public class BaseGraph extends Canvas implements MouseWheelListener {
         at.scale(zoomFactor, zoomFactor);
         prevZoomFactor = zoomFactor;
         g2.transform(at);
-        zoomed = false;
+        zoomer = false;
     }
 
     @Override
     public void paint(Graphics g) {
-        if(zoomed)
+        if(zoomer)
             zoom(g);
         drawGraph(g);
         g.setColor(Color.BLACK);
