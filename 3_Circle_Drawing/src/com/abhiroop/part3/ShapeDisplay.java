@@ -25,5 +25,9 @@ public class ShapeDisplay extends BaseGraph {
         drawShape(g,
                 new Shape_Two(super.getXOrigin(), super.getYOrigin(), 200,100, 15, 100),
                 0,200);
+
+        drawShape(g,
+                new Shape_Three(super.getXOrigin(), super.getYOrigin(), 20,10, 10, 100),
+                200,-200);
     }
 }
