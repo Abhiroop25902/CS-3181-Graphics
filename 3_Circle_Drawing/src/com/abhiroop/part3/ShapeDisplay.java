@@ -1,7 +1,5 @@
 package com.abhiroop.part3;
 
-import com.abhiroop.part1.CircleDrawer;
-import com.abhiroop.part2.EllipseDrawer;
 import com.abhiroop.prereq.BaseGraph;
 
 import javax.swing.*;
@@ -20,10 +18,12 @@ public class ShapeDisplay extends BaseGraph {
     public void paint(Graphics g) {
         super.paint(g);
 
-        drawShape(  g,
-                    new Shape_One(  new EllipseDrawer(super.getXOrigin(), super.getYOrigin()),
-                                    new CircleDrawer(super.getXOrigin(), super.getYOrigin()),
-                                    200, 100,10, 20)
-                    , -300,0);
+        drawShape(g,
+                new Shape_One(super.getXOrigin(), super.getYOrigin(), 200, 100,10, 20),
+                -200,-200);
+
+        drawShape(g,
+                new Shape_Two(super.getXOrigin(), super.getYOrigin(), 200,100, 15, 100),
+                0,200);
     }
 }
