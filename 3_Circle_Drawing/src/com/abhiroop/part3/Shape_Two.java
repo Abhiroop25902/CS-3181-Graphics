@@ -42,10 +42,11 @@ public class Shape_Two implements Shape{
     public void drawShape(Graphics g, int startX, int startY) {
         ellipseDrawer.draw(g, startX, startY, xRad, yRad);
 
-        int xInitial, yInitial, degree, xFinal, yFinal;
+        int xInitial, yInitial, xFinal, yFinal;
+        double degree;
 
         for(var i = 0; i<numLines;i++){
-            degree = rand(0,360);
+            degree = rand(0,360) * Math.PI / 180;
             xInitial = startX + (int)((xRad - 50)*Math.cos(degree));
             yInitial = startY + (int)((yRad - 50)*Math.sin(degree));
             xFinal = xInitial + (int)(lineLength*Math.cos(degree));
