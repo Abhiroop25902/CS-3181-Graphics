@@ -14,7 +14,8 @@ public class DrawForm {
     public void add(Pixel pixel){
         pixelList.add(pixel);
     }
-    public void drawPoints(Graphics g, int xOrigin, int yOrigin, Color color){
+
+    public void draw(Graphics g, int xOrigin, int yOrigin, Color color){
         var temp = g.getColor();
         g.setColor(color);
         for(var pixel: pixelList)
@@ -75,16 +76,16 @@ public class DrawForm {
     /**
      * Not Perfect yet
      */
-    public void drawFill(Graphics g, int xOrigin, int yOrigin, Color fillColor, Color drawColor){
+    public DrawForm generateFill(){
         pixelList.sort(new PixelComparator());
 
         var fillPoints = new DrawForm();
 
-        int startIdx = 1;
-        int endIdx = 1;
+        int startIdx = 0;
+        int endIdx = 0;
 
         while(startIdx < pixelList.size() - 1){
-            while(endIdx< pixelList.size() - 1 && pixelList.get(endIdx + 1).getY().equals(pixelList.get(startIdx).getY()))
+            while(endIdx < pixelList.size() - 1 && pixelList.get(endIdx + 1).getY().equals(pixelList.get(startIdx).getY()))
                 endIdx++;
 
             var y = pixelList.get(startIdx).getY();
@@ -94,11 +95,7 @@ public class DrawForm {
             startIdx = endIdx + 1;
         }
 
-        var temp = g.getColor();
-        g.setColor(fillColor);
-        fillPoints.drawPoints(g, xOrigin, yOrigin, fillColor);
-        g.setColor(temp);
-        drawPoints(g, xOrigin, yOrigin, drawColor);
+        return fillPoints;
     }
 
     public MatrixForm toMatrix(){

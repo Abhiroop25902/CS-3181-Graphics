@@ -66,8 +66,7 @@ public class BaseGraph extends Canvas implements MouseWheelListener {
     }
 
     private void drawLine(Graphics g, LineGenerator lineGenerator, Color color, int x1, int y1, int x2, int y2){
-        lineGenerator.generate(x1, y1, x2, y2).drawPoints(g, xOrigin, yOrigin, color);
-
+        lineGenerator.generate(x1, y1, x2, y2).draw(g, xOrigin, yOrigin, color);
     }
 
     private void drawString(Graphics g, Color color,  String str, int x, int y) {
