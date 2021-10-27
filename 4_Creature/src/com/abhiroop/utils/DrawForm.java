@@ -73,6 +73,10 @@ public class DrawForm {
         }
     }
 
+    public List<Pixel> getPixelList() {
+        return pixelList;
+    }
+
     /**
      * Not Perfect yet
      */
@@ -117,5 +121,11 @@ public class DrawForm {
         res[2] = row2;
 
         return new MatrixForm(res);
+    }
+
+    public DrawForm append(DrawForm other){
+        this.pixelList.addAll(other.getPixelList());
+
+        return this;
     }
 }

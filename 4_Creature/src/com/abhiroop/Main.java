@@ -1,5 +1,7 @@
 package com.abhiroop;
 
+//import com.abhiroop.bird.ShapeDisplay;
+
 import javax.swing.*;
 
 public class Main {
@@ -12,8 +14,10 @@ public class Main {
         return displayWindow;
     }
     public static void main(String[] args) {
-        var displayWindow1 = getDisplayWindow();
-        displayWindow1.add(new SharinganWindow(displayWindow1));
-//        }
+//        var displayWindow1 = getDisplayWindow();
+//        displayWindow1.add(new SharinganWindow(displayWindow1));
+
+        var displayWindow2 = getDisplayWindow();
+        displayWindow2.add(new ShapeDisplay(displayWindow2));
     }
 }

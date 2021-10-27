@@ -80,6 +80,20 @@ public class MatrixForm {
 
     }
 
+    public MatrixForm rotateInPlace(double degree, int xAnchor, int yAnchor){
+        degree = -degree * 180/Math.PI;
+
+        return this
+                .revMultiply(getTranslationMatrix(-xAnchor, -yAnchor))
+                .revMultiply(getRotationMatrix(degree))
+                .revMultiply(getTranslationMatrix(xAnchor, yAnchor));
+
+    }
+
+    public MatrixForm translate(int tx, int ty){
+        return this.revMultiply(getTranslationMatrix(tx, ty));
+    }
+
     public DrawForm toDrawForm(){
         var drawForm = new DrawForm();
         for(int j = 0; j < matrix[0].length; j++){
