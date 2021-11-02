@@ -16,24 +16,12 @@ public class ShapeDisplay extends BaseGraph {
     public void paint(Graphics g) {
         super.paint(g);
 
-        new Bird(
-                super.getXOrigin(),
-                super.getYOrigin(),
-                true,
-                true,
-                true,
-                true,
-                true,
-                2,
-                true,
-                true,
-                true,
-                true,
-                true,
-                false
-        )
-                .drawShape(g, -300, 400);
+        var bird1 = new Bird(super.getXOrigin(), super.getYOrigin());
+        bird1.drawShape(g, -300, 400);
 
+        var bird2 = new Bird(super.getXOrigin(), super.getYOrigin());
+        bird2.drawShape(g, 150, 400);
 
+        Bird.merge(bird1, bird2).drawShape(g, -300, -70);
     }
 }

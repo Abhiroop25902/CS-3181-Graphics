@@ -12,6 +12,7 @@ import com.abhiroop.bird.tail.Tail;
 import com.abhiroop.bird.utils.Shape;
 
 import java.awt.*;
+import java.util.Random;
 
 public class Bird implements Shape {
     private final int xOrigin;
@@ -29,21 +30,41 @@ public class Bird implements Shape {
     private final boolean armHair;
     private final boolean armLong;
 
+    public Bird(int xOrigin, int yOrigin) {
+        var rand = new Random(System.currentTimeMillis());
+        this.xOrigin = xOrigin;
+        this.yOrigin = yOrigin;
+        this.beakBig = rand.nextInt() % 2 == 0;
+        this.beakTeeth = rand.nextInt() % 2 == 0;
+        this.earCircle = rand.nextInt() % 2 == 0;
+        this.bodySpotted = rand.nextInt() % 2 == 0;
+        this.bodyHair = rand.nextInt() % 2 == 0;
+        this.tailType = rand.nextInt(3) % 3;
+        this.legSpotted = rand.nextInt() % 2 == 0;
+        this.legHair = rand.nextInt() % 2 == 0;
+        this.legLong = rand.nextInt() % 2 == 0;
+        this.armSpotted = rand.nextInt() % 2 == 0;
+        this.armHair = rand.nextInt() % 2 == 0;
+        this.armLong = rand.nextInt() % 2 == 0;
+    }
 
-    public Bird(int xOrigin,
-                int yOrigin,
-                boolean beakBig,
-                boolean beakTeeth,
-                boolean earCircle,
-                boolean bodySpotted,
-                boolean bodyHair,
-                int tailType,
-                boolean legSpotted,
-                boolean legHair,
-                boolean legLong,
-                boolean armSpotted,
-                boolean armHair,
-                boolean armLong) {
+    private Bird
+            (
+                    int xOrigin,
+                    int yOrigin,
+                    boolean beakBig,
+                    boolean beakTeeth,
+                    boolean earCircle,
+                    boolean bodySpotted,
+                    boolean bodyHair,
+                    int tailType,
+                    boolean legSpotted,
+                    boolean legHair,
+                    boolean legLong,
+                    boolean armSpotted,
+                    boolean armHair,
+                    boolean armLong
+            ) {
         this.xOrigin = xOrigin;
         this.yOrigin = yOrigin;
         this.beakBig = beakBig;
@@ -58,6 +79,27 @@ public class Bird implements Shape {
         this.armSpotted = armSpotted;
         this.armHair = armHair;
         this.armLong = armLong;
+    }
+
+    public static Bird merge(Bird bird1, Bird bird2){
+        var rand = new Random(System.currentTimeMillis());
+        return new Bird
+                (
+                        bird1.xOrigin,
+                        bird2.yOrigin,
+                        rand.nextBoolean()? bird1.isBeakBig()       : bird2.isBeakBig(),
+                        rand.nextBoolean()? bird1.isBeakTeeth()     : bird2.isBeakTeeth(),
+                        rand.nextBoolean()? bird1.isEarCircle()     : bird2.isEarCircle(),
+                        rand.nextBoolean()? bird1.isBodySpotted()   : bird2.isBodySpotted(),
+                        rand.nextBoolean()? bird1.isBodyHair()      : bird2.isBodyHair(),
+                        rand.nextBoolean()? bird1.getTailType()     : bird2.getTailType(),
+                        rand.nextBoolean()? bird1.isLegSpotted()    : bird2.isLegSpotted(),
+                        rand.nextBoolean()? bird1.isLegHair()       : bird2.isLegHair(),
+                        rand.nextBoolean()? bird1.isLegLong()       : bird2.isLegLong(),
+                        rand.nextBoolean()? bird1.isArmSpotted()    : bird2.isArmSpotted(),
+                        rand.nextBoolean()? bird1.isArmHair()       : bird2.isArmHair(),
+                        rand.nextBoolean()? bird1.isArmLong()       : bird2.isArmLong()
+                );
     }
 
     /**
@@ -100,9 +142,61 @@ public class Bird implements Shape {
 
         new Beak(xOrigin, yOrigin, beakBig, beakTeeth)
                 .drawShape(g, startX, startY);
+    }
 
+    public int getxOrigin() {
+        return xOrigin;
+    }
 
+    public int getyOrigin() {
+        return yOrigin;
+    }
 
+    public boolean isBeakBig() {
+        return beakBig;
+    }
 
+    public boolean isBeakTeeth() {
+        return beakTeeth;
+    }
+
+    public boolean isEarCircle() {
+        return earCircle;
+    }
+
+    public boolean isBodySpotted() {
+        return bodySpotted;
+    }
+
+    public boolean isBodyHair() {
+        return bodyHair;
+    }
+
+    public int getTailType() {
+        return tailType;
+    }
+
+    public boolean isLegSpotted() {
+        return legSpotted;
+    }
+
+    public boolean isLegHair() {
+        return legHair;
+    }
+
+    public boolean isLegLong() {
+        return legLong;
+    }
+
+    public boolean isArmSpotted() {
+        return armSpotted;
+    }
+
+    public boolean isArmHair() {
+        return armHair;
+    }
+
+    public boolean isArmLong() {
+        return armLong;
     }
 }
