@@ -25,11 +25,14 @@ public class ShapeDisplay extends BaseGraph {
                 true,
                 true,
                 2,
-                false,
-                false,
+                true,
+                true,
+                true,
+                true,
+                true,
                 false
         )
-                .drawShape(g, -400, 400);
+                .drawShape(g, -300, 400);
 
 
     }

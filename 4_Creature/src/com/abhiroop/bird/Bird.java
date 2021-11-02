@@ -1,10 +1,13 @@
 package com.abhiroop.bird;
 
+import com.abhiroop.bird.arm.BottomArm;
+import com.abhiroop.bird.arm.TopArm;
 import com.abhiroop.bird.beak.Beak;
 import com.abhiroop.bird.body.Body;
 import com.abhiroop.bird.ear.Ear;
 import com.abhiroop.bird.head.Head;
-import com.abhiroop.bird.legs.Legs;
+import com.abhiroop.bird.legs.LeftLeg;
+import com.abhiroop.bird.legs.RightLeg;
 import com.abhiroop.bird.tail.Tail;
 import com.abhiroop.bird.utils.Shape;
 
@@ -19,9 +22,12 @@ public class Bird implements Shape {
     private final boolean bodySpotted;
     private final boolean bodyHair;
     private final int tailType;
-    private final boolean spottedLeg;
-    private final boolean hairLeg;
+    private final boolean legSpotted;
+    private final boolean legHair;
     private final boolean legLong;
+    private final boolean armSpotted;
+    private final boolean armHair;
+    private final boolean armLong;
 
 
     public Bird(int xOrigin,
@@ -32,9 +38,12 @@ public class Bird implements Shape {
                 boolean bodySpotted,
                 boolean bodyHair,
                 int tailType,
-                boolean spottedLeg,
-                boolean hairLeg,
-                boolean legLong) {
+                boolean legSpotted,
+                boolean legHair,
+                boolean legLong,
+                boolean armSpotted,
+                boolean armHair,
+                boolean armLong) {
         this.xOrigin = xOrigin;
         this.yOrigin = yOrigin;
         this.beakBig = beakBig;
@@ -43,9 +52,12 @@ public class Bird implements Shape {
         this.bodySpotted = bodySpotted;
         this.bodyHair = bodyHair;
         this.tailType = tailType;
-        this.spottedLeg = spottedLeg;
-        this.hairLeg = hairLeg;
+        this.legSpotted = legSpotted;
+        this.legHair = legHair;
         this.legLong = legLong;
+        this.armSpotted = armSpotted;
+        this.armHair = armHair;
+        this.armLong = armLong;
     }
 
     /**
@@ -61,11 +73,20 @@ public class Bird implements Shape {
         new Tail(xOrigin, yOrigin, tailType)
                 .drawShape(g, startX + 220, startY - 150);
 
+        new LeftLeg(xOrigin, yOrigin, legSpotted, legHair, legLong)
+                .drawShape(g, startX+150, startY - 240);
+
+        new TopArm(xOrigin, yOrigin, armSpotted, armHair, armLong)
+                .drawShape(g, startX + 30, startY - 90);
+
         new Body(xOrigin, yOrigin, bodySpotted, bodyHair)
                 .drawShape(g, startX + 140, startY - 100);
 
-        new Legs(xOrigin, yOrigin, spottedLeg, hairLeg, legLong)
+        new RightLeg(xOrigin, yOrigin, legSpotted, legHair, legLong)
                 .drawShape(g, startX+200, startY - 200);
+
+        new BottomArm(xOrigin, yOrigin, armSpotted, armHair, armLong)
+                .drawShape(g, startX + 30, startY - 130);
 
         if(beakBig)
             new Head(xOrigin, yOrigin)

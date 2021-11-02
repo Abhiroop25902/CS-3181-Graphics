@@ -46,9 +46,9 @@ public class Tail implements Shape {
 
        DrawForm shape;
 
-       if(tailType == 1)
+       if(tailType == 0)
            shape = CircleGenerator.generate(startX, startY, dim);
-       else if(tailType == 2){
+       else if(tailType == 1){
            int y1 = startY - dim;
            int x2 = startX - dim;
            int x3 = startX + dim*2;
@@ -60,7 +60,7 @@ public class Tail implements Shape {
 
            shape = line1.append(line2).append(line3);
        }
-       else if(tailType == 3)
+       else if(tailType == 2)
            shape = CircleGenerator.generate(startX, startY, dim);
        else
            throw new IllegalArgumentException("tailType is incorrect");
@@ -69,7 +69,7 @@ public class Tail implements Shape {
         shape.generateFill().draw(g,xOrigin, yOrigin, Color.WHITE);
         shape.draw(g, xOrigin, yOrigin, Color.BLACK);
 
-        if(tailType == 3){
+        if(tailType == 2){
             CircleGenerator.generate(startX, startY, dim - 10)
                     .draw(g, xOrigin, yOrigin, Color.BLACK);
 

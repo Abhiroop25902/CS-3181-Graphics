@@ -39,16 +39,11 @@ public class LeftLeg implements Shape {
     public void drawShape(Graphics g, int startX, int startY) {
 
         if(sizeLong){
-            new BodyEllipseDrawer(xOrigin, yOrigin -20, 40, 20, spotted, hair, 120)
-                    .drawShape(g, startX, startY);
-
             new BodyEllipseDrawer(xOrigin - 10, yOrigin + 50, 40, 20, spotted, hair, 120)
                     .drawShape(g, startX, startY);
 
-            new BodyEllipseDrawer(xOrigin - 20, yOrigin+100, 15, 15, false, false, 120)
+            new BodyEllipseDrawer(xOrigin, yOrigin -20, 40, 20, spotted, hair, 120)
                     .drawShape(g, startX, startY);
-
-
 //        -----------------------Fingers (right to left)-------------
             new BodyEllipseDrawer(xOrigin - 9, yOrigin+115, 3, 7, false, false, -4.5)
                     .drawShape(g, startX, startY);
@@ -64,18 +59,16 @@ public class LeftLeg implements Shape {
 
             new BodyEllipseDrawer(xOrigin - 37, yOrigin+110, 3, 7, false, false, 5.5)
                     .drawShape(g, startX, startY);
+
+            new BodyEllipseDrawer(xOrigin - 20, yOrigin+100, 15, 15, false, false, 120)
+                    .drawShape(g, startX, startY);
         }
         else{
+            new BodyEllipseDrawer(xOrigin - 10, yOrigin + 30, 35, 15, spotted, hair, 120)
+                .drawShape(g, startX, startY);
+
             new BodyEllipseDrawer(xOrigin, yOrigin - 30, 35, 15, spotted, hair, 120)
                     .drawShape(g, startX, startY);
-
-            new BodyEllipseDrawer(xOrigin - 10, yOrigin + 30, 35, 15, spotted, hair, 120)
-                    .drawShape(g, startX, startY);
-
-            new BodyEllipseDrawer(xOrigin - 20, yOrigin+70, 10, 10, false, false, 120)
-                    .drawShape(g, startX, startY);
-
-
 //        -----------------------Fingers (right to left)-------------
             new BodyEllipseDrawer(xOrigin - 9, yOrigin+80, 3, 7, false, false, -4.5)
                     .drawShape(g, startX, startY);
@@ -90,6 +83,9 @@ public class LeftLeg implements Shape {
                     .drawShape(g, startX, startY);
 
             new BodyEllipseDrawer(xOrigin - 37, yOrigin+75, 3, 7, false, false, 5.5)
+                    .drawShape(g, startX, startY);
+
+            new BodyEllipseDrawer(xOrigin - 20, yOrigin+70, 10, 10, false, false, 120)
                     .drawShape(g, startX, startY);
         }
     }
