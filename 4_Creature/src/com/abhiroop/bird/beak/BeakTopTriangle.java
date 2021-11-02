@@ -1,16 +1,16 @@
-package com.abhiroop.Bird.Beak;
+package com.abhiroop.bird.beak;
 
 import com.abhiroop.prereq.lineGenerator.BresenhamGenerator;
-import com.abhiroop.Bird.Shape;
+import com.abhiroop.bird.utils.Shape;
 
 import java.awt.*;
 
 public class BeakTopTriangle implements Shape {
     private final int xOrigin;
     private final int yOrigin;
-    private int baseLength;
-    private int heightLength;
-    private int hairLength;
+    private final int baseLength;
+    private final int heightLength;
+    private final int hairLength;
 
     public BeakTopTriangle(int xOrigin,
                            int yOrigin,
@@ -72,10 +72,11 @@ public class BeakTopTriangle implements Shape {
         triangle.generateFill().draw(g, xOrigin, yOrigin, Color.WHITE);
         triangle.draw(g, xOrigin, yOrigin, Color.BLACK);
 
-        for(var i = startX + hairLength; i < startX + baseLength; i += hairLength) {
-            new BresenhamGenerator()
-                    .generate(i, startY, i, startY - hairLength)
-                            .draw(g, xOrigin, yOrigin, Color.BLACK);
+        if(hairLength > 0)
+            for(var i = startX + hairLength; i < startX + baseLength; i += hairLength) {
+                new BresenhamGenerator()
+                        .generate(i, startY, i, startY - hairLength)
+                        .draw(g, xOrigin, yOrigin, Color.BLACK);
         }
     }
 }

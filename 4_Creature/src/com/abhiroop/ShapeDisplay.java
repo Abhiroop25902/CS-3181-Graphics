@@ -1,19 +1,16 @@
 package com.abhiroop;
 
 import com.abhiroop.prereq.BaseGraph;
-import com.abhiroop.Bird.Bird;
+import com.abhiroop.bird.Bird;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 
 public class ShapeDisplay extends BaseGraph {
     public ShapeDisplay(JFrame displayWindow) {
         super(displayWindow);
     }
-
-//    void drawShape(Graphics g, Shape shape, int startX, int startY){
-//        shape.drawShape(g, startX, startY);
-//    }
 
     @Override
     public void paint(Graphics g) {
@@ -24,8 +21,16 @@ public class ShapeDisplay extends BaseGraph {
                 super.getYOrigin(),
                 true,
                 true,
-                true
+                true,
+                true,
+                true,
+                2,
+                false,
+                false,
+                false
         )
                 .drawShape(g, -400, 400);
+
+
     }
 }

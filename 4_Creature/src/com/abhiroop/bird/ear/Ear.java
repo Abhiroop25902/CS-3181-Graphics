@@ -1,11 +1,10 @@
-package com.abhiroop.Bird.Ear;
+package com.abhiroop.bird.ear;
 
-import com.abhiroop.Bird.Shape;
+import com.abhiroop.bird.utils.Shape;
 import com.abhiroop.prereq.circleGenerator.CircleGenerator;
 import com.abhiroop.prereq.lineGenerator.BresenhamGenerator;
 import com.abhiroop.utils.DrawForm;
 
-import javax.xml.crypto.dsig.XMLObject;
 import java.awt.*;
 
 public class Ear implements Shape {

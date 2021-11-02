@@ -1,7 +1,7 @@
-package com.abhiroop.Bird.Head;
+package com.abhiroop.bird.head;
 
 import com.abhiroop.prereq.circleGenerator.CircleGenerator;
-import com.abhiroop.Bird.Shape;
+import com.abhiroop.bird.utils.Shape;
 
 import java.awt.*;
 

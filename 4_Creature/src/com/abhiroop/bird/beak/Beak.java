@@ -1,6 +1,6 @@
-package com.abhiroop.Bird.Beak;
+package com.abhiroop.bird.beak;
 
-import com.abhiroop.Bird.Shape;
+import com.abhiroop.bird.utils.Shape;
 
 import java.awt.*;
 

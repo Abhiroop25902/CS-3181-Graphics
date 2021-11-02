@@ -1,4 +1,4 @@
-package com.abhiroop.Bird;
+package com.abhiroop.bird.utils;
 
 import java.awt.*;
 

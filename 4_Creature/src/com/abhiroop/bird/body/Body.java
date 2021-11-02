@@ -1,5 +1,6 @@
-package com.abhiroop.Bird;
+package com.abhiroop.bird.body;
 
+import com.abhiroop.bird.utils.Shape;
 import com.abhiroop.prereq.circleGenerator.CircleGenerator;
 import com.abhiroop.prereq.ellipseGenerator.EllipseGenerator;
 import com.abhiroop.prereq.lineGenerator.BresenhamGenerator;
@@ -7,7 +8,7 @@ import com.abhiroop.prereq.lineGenerator.BresenhamGenerator;
 import java.awt.*;
 import java.util.Random;
 
-public class BodyPart implements Shape {
+public class Body implements Shape {
     private final int xOrigin;
     private final int yOrigin;
     private final Random rand;
@@ -22,25 +23,17 @@ public class BodyPart implements Shape {
      * Draws an ellipse and then multiple circles inside it
      * @param xOrigin xOrigin of the Frame
      * @param yOrigin yOrigin of the Frame
-     * @param xRad the x-axis radius length of the ellipse
-     * @param yRad the y-axis radius length of the ellipse
-     * @param numEntities number of circles to be made inside the ellipse
-     * @param entityDimension maximum possible radius of the circles
      */
-    public BodyPart(int xOrigin,
-                    int yOrigin,
-                    int xRad,
-                    int yRad,
-                    int numEntities,
-                    int entityDimension,
-                    boolean spotted,
-                    boolean hair) {
+    public Body(int xOrigin,
+                int yOrigin,
+                boolean spotted,
+                boolean hair) {
         this.xOrigin = xOrigin;
         this.yOrigin = yOrigin;
-        this.xRad = xRad;
-        this.yRad = yRad;
-        this.numEntities = numEntities;
-        this.entityDimension = entityDimension;
+        this.xRad = 100;
+        this.yRad = 70;
+        this.numEntities = 20;
+        this.entityDimension = 5;
         this.rand = new Random(System.currentTimeMillis());
         this.spotted = spotted;
         this.hair = hair;
@@ -58,7 +51,6 @@ public class BodyPart implements Shape {
      */
     @Override
     public void drawShape(Graphics g, int startX, int startY) {
-//        ellipseDrawer.draw(g, startX,startY, xRad, yRad);
 
         EllipseGenerator
                 .generate(startX, startY, xRad, yRad)
@@ -81,8 +73,8 @@ public class BodyPart implements Shape {
             for(var i = 0; i< numEntities; i++)
                 CircleGenerator
                         .generate(
-                                startX + rand(-(xRad - entityDimension - 10), xRad - entityDimension - 10),
-                                startY + rand(-(yRad - entityDimension - 10), yRad - entityDimension - 10),
+                                startX + rand(-(xRad - entityDimension - 20), xRad - entityDimension - 20),
+                                startY + rand(-(yRad - entityDimension - 20), yRad - entityDimension - 20),
                                 entityDimension)
                         .toMatrix()
                         .rotateInPlace(-45, startX, startY)
