@@ -30,6 +30,11 @@ public class Bird implements Shape {
     private final boolean armHair;
     private final boolean armLong;
 
+    private void printCharacteristics(){
+        System.out.printf("%b,%b,%b,%b,%b,%d,%b,%b,%b,%b,%b,%b\n",
+                 beakBig, beakTeeth, earCircle, bodySpotted, bodyHair, tailType, legSpotted, legHair, legLong, armSpotted, armHair, armLong);
+    }
+
     public Bird(int xOrigin, int yOrigin) {
         var rand = new Random(System.currentTimeMillis());
         this.xOrigin = xOrigin;
@@ -46,6 +51,8 @@ public class Bird implements Shape {
         this.armSpotted = rand.nextInt() % 2 == 0;
         this.armHair = rand.nextInt() % 2 == 0;
         this.armLong = rand.nextInt() % 2 == 0;
+
+//        printCharacteristics();
     }
 
     private Bird
@@ -79,6 +86,8 @@ public class Bird implements Shape {
         this.armSpotted = armSpotted;
         this.armHair = armHair;
         this.armLong = armLong;
+
+//        printCharacteristics();
     }
 
     public static Bird merge(Bird bird1, Bird bird2){
