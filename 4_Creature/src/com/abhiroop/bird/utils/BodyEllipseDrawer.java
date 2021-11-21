@@ -86,6 +86,8 @@ public class BodyEllipseDrawer{
                 int yInitial = startY + (int)((yRad - entityDimension/2)*Math.sin(degree));
                 int xFinal = xInitial + (int)(3*entityDimension*Math.cos(degree));
                 int yFinal = yInitial + (int)(3*entityDimension*Math.sin(degree));
+
+                //draw line from (xInitial, yInitial) to (xFinal, yFinal)
                 new BresenhamGenerator()
                         .generate(xInitial, yInitial, xFinal, yFinal)
                         .toMatrix()
