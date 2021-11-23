@@ -2,6 +2,7 @@ package com.abhiroop;
 
 //import com.abhiroop.bird.ShapeDisplay;
 
+import com.abhiroop.bezeirCurve.BezierCurveWindow;
 import com.abhiroop.lineClipping.LineClippingDisplay;
 
 import javax.swing.*;
@@ -17,6 +18,11 @@ public class Main {
     }
     public static void main(String[] args) {
         var lineClippingWindow = getDisplayWindow();
-        lineClippingWindow.add(new LineClippingDisplay(lineClippingWindow, -400, -400, 400, 400));
+        lineClippingWindow.add(new LineClippingDisplay(
+                lineClippingWindow, -400, -400, 400, 400
+        ));
+
+        var bezierCurveFrame = getDisplayWindow();
+        bezierCurveFrame.add(new BezierCurveWindow(bezierCurveFrame));
     }
 }
