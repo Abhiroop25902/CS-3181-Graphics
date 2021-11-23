@@ -59,7 +59,7 @@ public class Line {
             entering.add( ((double)q1) / ((double)p1) );
         else if(p1 > 0)
             exiting.add( ((double)q1) / ((double)p1) );
-        else if(p1 == 0 && q1 < 0)
+        else if(q1 < 0)
             return new Line(0,0,0,0);
 
         int p2 = end.x - start.x;
@@ -68,7 +68,7 @@ public class Line {
             entering.add( ((double)q2) / ((double)p2) );
         else if(p2 > 0)
             exiting.add( ((double)q2) / ((double)p2) );
-        else if(p2 == 0 && q2 < 0)
+        else if(q2 < 0)
             return new Line(0,0,0,0);
 
         int p3 = -(end.y - start.y);
@@ -77,7 +77,7 @@ public class Line {
             entering.add( ((double)q3) / ((double)p3) );
         else if(p3 > 0)
             exiting.add( ((double)q3) / ((double)p3) );
-        else if(p3 == 0 && q3 < 0)
+        else if(q3 < 0)
             return new Line(0,0,0,0);
 
         int p4 = end.y - start.y;
@@ -86,14 +86,11 @@ public class Line {
             entering.add( ((double)q4) / ((double)p4) );
         else if(p4 > 0)
             exiting.add( ((double)q4) / ((double)p4) );
-        else if(p4 == 0 && q4 < 0)
+        else if(q4 < 0)
             return new Line(0,0,0,0);
 
         double uMax = exiting.stream().min(Double::compareTo).orElse(1.0);
         double uMin = entering.stream().max(Double::compareTo).orElse(0.0);
-
-        System.out.println(uMax);
-        System.out.println(uMin);
 
         return new Line(
                 new Point((int)Math.round(start.x + (end.x - start.x)*uMin), (int)Math.round(start.y + (end.y - start.y)*uMin)),
